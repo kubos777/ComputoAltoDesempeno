@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
   double *x, *y, *local_x, *local_y;
   int    res, n_local; 
   double  dot, local_dot,sum_local;
-  int    inicio,size, rank, i, n;
+  int    inicio,size, rank, i, n=10000;
   
   
   MPI_Init(&argc, &argv);
@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 ///////////////// Rank = 0 ////////////////////////////////////////////  
   if (rank == 0) {
-    printf("Tamaño del vector ");
-     scanf("%d", &n);
+    printf("Tamaño del vector %d",n);
+    // scanf("%d", &n);
     x = (double *) calloc(n, sizeof(double));
     y = (double *) calloc(n, sizeof(double));
 		for (i=0; i<n; i++) 
